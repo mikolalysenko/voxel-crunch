@@ -1,6 +1,6 @@
 {
   "name": "voxel-crunch",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Compresses chunks from voxel.js",
   "main": "index.js",
   "directories": {
