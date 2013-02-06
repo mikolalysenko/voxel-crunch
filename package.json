@@ -1,0 +1,31 @@
+{
+  "name": "voxel-crunch",
+  "version": "0.0.0",
+  "description": "Compresses chunks from voxel.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "~0.4.0"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/voxel-crunch.git"
+  },
+  "keywords": [
+    "voxel",
+    "js",
+    "compress",
+    "serialize",
+    "chunks"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "4d7922868e62e8e5f8d98b2f7dc128319f05c97a"
+}
