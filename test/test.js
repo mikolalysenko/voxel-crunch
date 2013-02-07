@@ -11,7 +11,7 @@ require("tap").test("basic test", function(t) {
     data.push(6);
   }
   
-  crunch.encode(data, function(err, runs) {
+  crunch.encode(new Int8Array(data), function(err, runs) {
     console.log(runs);
     crunch.decode(runs, data.length, function(err, decoded) {
       console.log("here");
