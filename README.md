@@ -27,7 +27,7 @@ Example
 ------------------------------------------------------------
 This method crunches a chunk down into a smaller representation.  It takes 2 arguments
 * `chunk` is either a `Buffer`, a `Uint8Array`, or an `Array` of bytes
-* `callback` is called when the encoding completes, with either an error or a crunched buffer if successful.
+* `callback` is called when the encoding completes, with either an error or a crunched `Uint8Array` if successful.
 
 `require("voxel-crunch").decode(buf, chunk_len, callback(err, chunk))`
 ------------------------------------------------------------
@@ -36,7 +36,6 @@ This method decodes a crunched chunk back into a full chunk.  It takes 3 argumen
 * `buf` is the crunched chunk
 * `chunk_len` is the length of the decoded chunk
 * `callback(err, chunk)` is called when the decoding is complete
-
 
 Credits
 =======

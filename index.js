@@ -17,7 +17,13 @@ exports.encode = function(chunk, cb) {
     runs.push(l);
     runs.push(v);
   }
-  zlib.gzip(new Buffer(runs), cb);
+  zlib.gzip(new Buffer(runs), function(err, result) {
+    if(err) {
+      cb(err, null);
+      return;
+    }
+    cb(null, new Uint8Array(result));
+  });
 }
 
 exports.decode = function(buf, buf_len, cb) {
@@ -25,7 +31,7 @@ exports.decode = function(buf, buf_len, cb) {
     cb = buf_len;
     buf_len = (1<<16);
   }
-  zlib.gunzip(buf, function(err, runs) {
+  zlib.gunzip(new Buffer(buf), function(err, runs) {
     if(err) {
       cb(err, null);
       return;
