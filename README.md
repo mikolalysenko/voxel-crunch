@@ -14,28 +14,30 @@ Example
 =======
 
     var data = chunk.voxels;
-    require("voxel-crunch").encode(data, function(err, crunched) {
-      //crunched is a compressed representation of data
-      require("voxel-crunch").decode(crunched, data.length, function(err, result) {
-        //Now:
-        // result == data
-      });
-    });
+    //First encode data
+    var rle = require("voxel-crunch").encode(data);
+    //Then decode
+    var result = require("voxel-crunch").decode(rle, data.length);
+    //Now
+    //    result == data
 
-
-`require("voxel-crunch").encode(chunk, callback(err, buf))`
+`require("voxel-crunch").encode(chunk)`
 ------------------------------------------------------------
-This method crunches a chunk down into a smaller representation.  It takes 2 arguments
-* `chunk` is either a `Buffer`, a `Uint8Array`, or an `Array` of bytes
-* `callback` is called when the encoding completes, with either an error or a crunched `Uint8Array` if successful.
+This method crunches a chunk down into a smaller representation.
 
-`require("voxel-crunch").decode(buf, chunk_len, callback(err, chunk))`
+* `chunk` is either a `Buffer`, a `Uint8Array`, or an `Array` of bytes
+
+It returns a Uint8Array containing a run-length-encoded representation of the chunks.
+
+`require("voxel-crunch").decode(runs, chunk_len)`
 ------------------------------------------------------------
 This method decodes a crunched chunk back into a full chunk.  It takes 3 arguments:
 
-* `buf` is the crunched chunk
+* `runs` is the crunched chunk
 * `chunk_len` is the length of the decoded chunk
-* `callback(err, chunk)` is called when the decoding is complete
+
+If the runs are not valid, it throws an error.  Otherwise, it returns a buffer of length=chunk_len containing the decompressed voxel buffer.
+
 
 Credits
 =======
