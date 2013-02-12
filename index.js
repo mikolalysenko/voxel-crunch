@@ -8,7 +8,6 @@ exports.encode = function(chunk, cb) {
       ++i;
       ++l;
     }
-    console.log(l, v);
     while(l >= 128) {
       runs.push(128 + (l&0x7f));
       l >>>= 7;
@@ -33,7 +32,6 @@ exports.decode = function(runs, buf_len) {
       s += 7;
     }
     l += runs[ptr++] << s;
-    console.log(l);
     if(ptr >= runs.length || (cptr + l > chunk.length) ) {
       throw new Error("Chunk buffer overflow");
     }
