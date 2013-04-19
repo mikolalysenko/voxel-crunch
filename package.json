@@ -1,14 +1,18 @@
 {
   "name": "voxel-crunch",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Compresses chunks from voxel.js",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bit-twiddle": "0.0.2"
+  },
   "devDependencies": {
-    "tap": "~0.4.0"
+    "tap": "~0.4.0",
+    "iota-array": "0.0.0",
+    "dup": "0.0.0"
   },
   "scripts": {
     "test": "tap test/*.js"
@@ -22,7 +26,12 @@
     "js",
     "compress",
     "serialize",
-    "chunks"
+    "chunks",
+    "run",
+    "length",
+    "encode",
+    "decode",
+    "rle"
   ],
   "author": "Mikola Lysenko",
   "license": "BSD",
