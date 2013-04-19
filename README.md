@@ -28,8 +28,6 @@ Counts the number of bytes required to run length encode chunk
 
 **Returns** A number representing the minimal number of bytes necessary to compress chunk
 
-**Returns** The number of runs required to compress the chunk
-
 ## `require("voxel-crunch").encode(chunk[, result])`
 Run length encodes an array of int-like objects
 
