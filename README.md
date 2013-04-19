@@ -36,7 +36,9 @@ Run length encodes an array of int-like objects
 * `chunk` is either an array-like object
 * `result` is an optional array argument which stores the result of the encoding.  If not specified, a Uint8Array is allocated.
 
-**Returns** A new
+**Returns** If `result` is specified, then `result` is returned.  Otherwise a new array is allocated.
+
+**Throws** An error if the result buffer is too small
 
 ## `require("voxel-crunch").decode(runs, result)`
 This method decodes a crunched chunk back into a full chunk.  It takes 3 arguments:
@@ -47,6 +49,8 @@ This method decodes a crunched chunk back into a full chunk.  It takes 3 argumen
 If the runs are not valid or if the bounds on the chunk are exceeded, an error will be thrown.
 
 **Returns** `result`
+
+**Throws** An error if either result is too small or runs is invalid.
 
 Credits
 =======

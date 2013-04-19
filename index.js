@@ -23,7 +23,7 @@ function encode(chunk, runs) {
   if(!runs) {
     runs = new Uint8Array(size(chunk))
   }
-  var rptr = 0
+  var rptr = 0, nruns = runs.length
   var i = 0, v, l
   while(i<chunk.length) {
     v = chunk[i]
@@ -32,15 +32,21 @@ function encode(chunk, runs) {
       ++i
       ++l
     }
-    while(l >= 128) {
+    while(rptr < nruns && l >= 128) {
       runs[rptr++] = 128 + (l&0x7f)
       l >>>= 7
     }
+    if(rptr >= nruns) {
+      throw new Error("RLE buffer overflow")
+    }
     runs[rptr++] = l
     v >>>= 0
-    while(v >= 128) {
+    while(rptr < nruns && v >= 128) {
       runs[rptr++] = 128 + (v&0x7f)
       v >>>= 7
+    }
+    if(rptr >= nruns) {
+      throw new Error("RLE buffer overflow")
     }
     runs[rptr++] = v
   }

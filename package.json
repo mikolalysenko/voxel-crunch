@@ -1,7 +1,7 @@
 {
   "name": "voxel-crunch",
   "version": "0.2.0",
-  "description": "Compresses chunks from voxel.js",
+  "description": "Simple run length encoding library",
   "main": "index.js",
   "directories": {
     "test": "test"
